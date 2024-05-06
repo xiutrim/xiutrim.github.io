@@ -1,8 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo加密</title>
+    <url>/2024/05/06/37/</url>
+    <content><![CDATA[<h1 id="hexo-blog-encrypt"><a href="#hexo-blog-encrypt" class="headerlink" title="hexo-blog-encrypt"></a>hexo-blog-encrypt</h1><p><img src="https://img.shields.io/github/v/release/D0n9x1n/hexo-blog-encrypt?include_prereleases" alt="GitHub release (latest SemVer including pre-releases)"><br><a href="https://scrutinizer-ci.com/g/MikeCoder/hexo-blog-encrypt/build-status/master"><img src="https://scrutinizer-ci.com/g/MikeCoder/hexo-blog-encrypt/badges/build.png?b=master" alt="Build Status"></a><br><a href="https://scrutinizer-ci.com/g/MikeCoder/hexo-blog-encrypt/?branch=master"><img src="https://scrutinizer-ci.com/g/MikeCoder/hexo-blog-encrypt/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a></p>
+<h4 id="提-issue-之前，请务必提供复现方式，log，配置信息等必要信息。良好的-issue-可以节省双方的时间。"><a href="#提-issue-之前，请务必提供复现方式，log，配置信息等必要信息。良好的-issue-可以节省双方的时间。" class="headerlink" title="提 issue 之前，请务必提供复现方式，log，配置信息等必要信息。良好的 issue 可以节省双方的时间。"></a>提 issue 之前，请务必提供复现方式，log，配置信息等必要信息。良好的 issue 可以节省双方的时间。</h4><p><em>请严格按照模版要求，不明确的 issue 将直接关闭。</em></p>
+<p><strong>参考 issue:</strong></p>
+<blockquote>
+<ul>
+<li><a href="https://github.com/MikeCoder/hexo-blog-encrypt/issues/83">Issue 83</a></li>
+<li><a href="https://github.com/MikeCoder/hexo-blog-encrypt/issues/68">Issue 68</a></li>
+</ul>
+</blockquote>
+<h2 id="这是个啥"><a href="#这是个啥" class="headerlink" title="这是个啥"></a>这是个啥</h2><ul>
+<li><p><del>首先, 这是 Hexo 生态圈中 <strong>最好的</strong> 博客加密插件</del></p>
+</li>
+<li><p>你可能需要写一些私密的博客, 通过密码验证的方式让人不能随意浏览.</p>
+</li>
+<li><p>这在 wordpress, emlog 或是其他博客系统中都很容易实现, 然而 hexo 除外. :(</p>
+</li>
+<li><p>为了解决这个问题, 让我们有请 “hexo-blog-encrypt”.</p>
+</li>
+</ul>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ul>
+<li><p>一旦你输入了正确的密码, 它将会被存储在本地浏览器的 localStorage中. 按个按钮, 密码将会被清空. 若博客中有脚本, 它将会被正确地执行.</p>
+</li>
+<li><p>支持按标签加密.</p>
+</li>
+<li><p>所有的核心功能都是由原生的 API 所提供的. 在 Node.js中, 我们使用 <a href="https://nodejs.org/dist/latest-v12.x/docs/api/crypto.html">Crypto</a>. 在浏览器中, 我们使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API">Web Crypto API</a>.</p>
+</li>
+<li><p><a href="https://tools.ietf.org/html/rfc2898">PBKDF2</a>, <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">SHA256</a> 被用于分发密钥, <a href="https://csrc.nist.gov/publications/detail/sp/800-38a/final">AES256-CBC</a> 被用于加解密, 我们还使用 <a href="https://csrc.nist.gov/csrc/media/publications/fips/198/1/final/documents/fips-198-1_final.pdf">HMAC</a> 来验证密文的来源, 并确保其未被篡改.</p>
+</li>
+<li><p>我们广泛地使用 Promise 来进行异步操作, 以此确保线程不被阻塞.</p>
+</li>
+<li><p>加密页面多主题支持, 现在已经支持的主题有 [<code>default</code>, <code>xray</code>], 更多的主题正在开发中.</p>
+</li>
+<li><p>过时的浏览器将不能正常显示, 因此, 请升级您的浏览器.</p>
+</li>
+</ul>
+<h2 id="在线演示"><a href="#在线演示" class="headerlink" title="在线演示"></a>在线演示</h2><ul>
+<li>点击 <a href="https://mhexo.github.io/">Demo Page</a>, <strong>所有的密码都是 <code>hello</code></strong>.</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li><p><code>npm install --save hexo-blog-encrypt</code></p>
+</li>
+<li><p>或 <code>yarn add hexo-blog-encrypt</code> (需要) <a href="https://yarnpkg.com/en/">Yarn</a>)</p>
+</li>
+</ul>
+<h2 id="快速使用"><a href="#快速使用" class="headerlink" title="快速使用"></a>快速使用</h2><ul>
+<li>将 “password” 字段添加到您文章信息头就像这样.</li>
+</ul>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line">title: Hello World</span><br><span class="line">date: 2016-03-30 21:18:02</span><br><span class="line"><span class="section">password: hello</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>再使用 <code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code> 在本地预览加密的文章.</li>
+</ul>
+<h2 id="设置优先级"><a href="#设置优先级" class="headerlink" title="设置优先级"></a>设置优先级</h2><p>文章信息头 &gt; 按标签加密</p>
+<h2 id="高级设置"><a href="#高级设置" class="headerlink" title="高级设置"></a>高级设置</h2><h3 id="文章信息头"><a href="#文章信息头" class="headerlink" title="文章信息头"></a>文章信息头</h3><figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line">title: Hello World</span><br><span class="line">tags:</span><br><span class="line"><span class="bullet">-</span> 作为日记加密</span><br><span class="line">date: 2016-03-30 21:12:21</span><br><span class="line">password: mikemessi</span><br><span class="line">abstract: 有东西被加密了, 请输入密码查看.</span><br><span class="line">message: 您好, 这里需要密码.</span><br><span class="line">wrong<span class="emphasis">_pass_</span>message: 抱歉, 这个密码看着不太对, 请再试试.</span><br><span class="line"><span class="section">wrong<span class="emphasis">_hash_</span>message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a><code>_config.yml</code></h3><h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Security</span></span><br><span class="line"><span class="attr">encrypt:</span> <span class="comment"># hexo-blog-encrypt</span></span><br><span class="line">  <span class="attr">abstract:</span> <span class="string">有东西被加密了,</span> <span class="string">请输入密码查看.</span></span><br><span class="line">  <span class="attr">message:</span> <span class="string">您好,</span> <span class="string">这里需要密码.</span></span><br><span class="line">  <span class="attr">tags:</span></span><br><span class="line">  <span class="bullet">-</span> {<span class="attr">name:</span> <span class="string">tagName</span>, <span class="attr">password:</span> <span class="string">密码A</span>}</span><br><span class="line">  <span class="bullet">-</span> {<span class="attr">name:</span> <span class="string">tagName</span>, <span class="attr">password:</span> <span class="string">密码B</span>}</span><br><span class="line">  <span class="attr">wrong_pass_message:</span> <span class="string">抱歉,</span> <span class="string">这个密码看着不太对,</span> <span class="string">请再试试.</span></span><br><span class="line">  <span class="attr">wrong_hash_message:</span> <span class="string">抱歉,</span> <span class="string">这个文章不能被校验,</span> <span class="string">不过您还是能看看解密后的内容.</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="对博文禁用-Tag-加密"><a href="#对博文禁用-Tag-加密" class="headerlink" title="对博文禁用 Tag 加密"></a>对博文禁用 Tag 加密</h4><p>只需要将博文头部的 <code>password</code> 设置为 <code>""</code> 即可取消 Tag 加密.</p>
+<p>Example:</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Callback</span> <span class="string">Test</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2019-12-21 11:54:07</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">A</span> <span class="string">Tag</span> <span class="string">should</span> <span class="string">be</span> <span class="string">encrypted</span></span><br><span class="line"><span class="attr">password:</span> <span class="string">""</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="string">Use</span> <span class="string">a</span> <span class="string">""</span> <span class="string">to</span> <span class="string">diable</span> <span class="string">tag</span> <span class="string">encryption.</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="配置优先级"><a href="#配置优先级" class="headerlink" title="配置优先级"></a>配置优先级</h3><p>文章信息头 &gt; <code>_config.yml</code> (站点根目录下的) &gt; 默认配置</p>
+<h3 id="关于-Callback-函数"><a href="#关于-Callback-函数" class="headerlink" title="关于 Callback 函数"></a>关于 Callback 函数</h3><p>在部分博客中, 解密后部分元素可能无法正常显示或者表现, 这属于已知问题. 目前的解决办法是通过自行查阅自己的博客中的代码, 了解到在 onload 事件发生时调用了哪些函数, 并将这些函数挑选后写入到博客内容中. 如:</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Callback</span> <span class="string">Test</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2019-12-21 11:54:07</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">Encrypted</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="attr">This is a blog to test Callback functions. You just need to add code at the last of your post like following:</span></span><br><span class="line"></span><br><span class="line"><span class="string">It</span> <span class="string">will</span> <span class="string">be</span> <span class="string">called</span> <span class="string">after</span> <span class="string">the</span> <span class="string">blog</span> <span class="string">decrypted.</span></span><br><span class="line"></span><br><span class="line"><span class="string">&lt;script&gt;</span></span><br><span class="line">    <span class="string">//</span> <span class="string">添加一个</span> <span class="string">script</span> <span class="string">tag</span> <span class="string">与代码在文章末尾.</span></span><br><span class="line">    <span class="string">alert("Hello</span> <span class="string">World");</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>例子在: <a href="https://mhexo.github.io/2020/12/06/Callback-Test/">Callback 例子</a>.</p>
+<h3 id="解密后的触发事件"><a href="#解密后的触发事件" class="headerlink" title="解密后的触发事件"></a>解密后的触发事件</h3><p>感谢 @<a href="https://github.com/f-dong">f-dong</a>, 我们现在会在解密完成后触发一个 <code>hexo-blog-decrypt</code> 事件, 你们可以编写 callback 来监听该事件.</p>
+<figure class="highlight oxygene"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// trigger event</span></span><br><span class="line"><span class="keyword">var</span> <span class="keyword">event</span> = <span class="keyword">new</span> <span class="keyword">Event</span>(<span class="string">'hexo-blog-decrypt'</span>)<span class="punctuation">;</span></span><br><span class="line">window.dispatchEvent(<span class="keyword">event</span>)<span class="punctuation">;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="对-TOC-进行加密"><a href="#对-TOC-进行加密" class="headerlink" title="对 TOC 进行加密"></a>对 TOC 进行加密</h3><p>如果你有一篇文章使用了 TOC，你需要修改模板的部分代码。这里用 landscape 作为例子：</p>
+<ul>
+<li>你可以在 hexo/themes/landscape/layout/_partial/article.ejs 找到 article.ejs。</li>
+<li>然后找到 &lt;% post.content %&gt; 这段代码，通常在30行左右。</li>
+<li>使用如下的代码来替代它:</li>
+</ul>
+<figure class="highlight xquery"><table><tbody><tr><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span>(post.toc ==<span class="built_in"> true</span>){ %&gt;</span><br><span class="line">  &lt;div<span class="built_in"> id</span>=<span class="string">"toc-div"</span> class=<span class="string">"toc-article"</span> &lt;% <span class="keyword">if</span> (post.encrypt ==<span class="built_in"> true</span>) { %&gt;style=<span class="string">"display:none"</span> &lt;% } %&gt;&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">strong</span> <span class="attr">class</span>=<span class="string">"toc-title"</span>&gt;</span>Index<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span></span><br><span class="line">      &lt;% <span class="keyword">if</span> (post.encrypt ==<span class="built_in"> true</span>) { %&gt;</span><br><span class="line">        &lt;<span class="meta">%-</span> toc(post.origin, {list_number:<span class="built_in"> true</span>}) %&gt;</span><br><span class="line">      &lt;% } <span class="keyword">else</span> { %&gt;</span><br><span class="line">        &lt;<span class="meta">%-</span> toc(post.content, {list_number:<span class="built_in"> true</span>}) %&gt;</span><br><span class="line">      &lt;% } %&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;% } %&gt;</span><br><span class="line">&lt;<span class="meta">%-</span> post.content %&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="禁用-Log"><a href="#禁用-Log" class="headerlink" title="禁用 Log"></a>禁用 Log</h3><p>If you want to disable the logging, you can add a silent property in <code>_config.yml</code> and set it to true.<br>如果你想要禁止使用 Log, 你可以在 <code>_config.yml</code> 中增加一个 silent 属性, 并将其设置为 true.</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># Security</span></span><br><span class="line"><span class="attr">encrypt:</span> <span class="comment"># hexo-blog-encrypt</span></span><br><span class="line">  <span class="attr">silent:</span> <span class="literal">true</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>这样就会禁止如 <code>INFO  hexo-blog-encrypt: encrypting "{Blog Name}" based on Tag: "EncryptedTag".</code> 的日志.</p>
+<h3 id="加密主题"><a href="#加密主题" class="headerlink" title="加密主题"></a>加密主题</h3><p>之前, 我们尝试使用 <code>template</code> 关键字来让用户能修改自己的主题. 后来发现真不是一个好主意. 所以我们现在引入了主题: <code>theme</code> 关键字.</p>
+<p>你可以简单的使用 <code>theme</code> 在 <code>_config.yml</code> 里或者文章头, 如下:</p>
+<h3 id="文章信息头-1"><a href="#文章信息头-1" class="headerlink" title="文章信息头"></a>文章信息头</h3><figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line">title: Hello World</span><br><span class="line">tags:</span><br><span class="line"><span class="bullet">-</span> 作为日记加密</span><br><span class="line">date: 2016-03-30 21:12:21</span><br><span class="line">password: mikemessi</span><br><span class="line">abstract: 有东西被加密了, 请输入密码查看.</span><br><span class="line">message: 您好, 这里需要密码.</span><br><span class="line">theme: xray</span><br><span class="line">wrong<span class="emphasis">_pass_</span>message: 抱歉, 这个密码看着不太对, 请再试试.</span><br><span class="line"><span class="section">wrong<span class="emphasis">_hash_</span>message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="在-config-yml"><a href="#在-config-yml" class="headerlink" title="在 _config.yml"></a>在 <code>_config.yml</code></h3><h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h4><figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Security</span></span><br><span class="line"><span class="attr">encrypt:</span> <span class="comment"># hexo-blog-encrypt</span></span><br><span class="line">  <span class="attr">abstract:</span> <span class="string">有东西被加密了,</span> <span class="string">请输入密码查看.</span></span><br><span class="line">  <span class="attr">message:</span> <span class="string">您好,</span> <span class="string">这里需要密码.</span></span><br><span class="line">  <span class="attr">tags:</span></span><br><span class="line">  <span class="bullet">-</span> {<span class="attr">name:</span> <span class="string">tagName</span>, <span class="attr">password:</span> <span class="string">密码A</span>}</span><br><span class="line">  <span class="bullet">-</span> {<span class="attr">name:</span> <span class="string">tagName</span>, <span class="attr">password:</span> <span class="string">密码B</span>}</span><br><span class="line">  <span class="attr">theme:</span> <span class="string">xray</span></span><br><span class="line">  <span class="attr">wrong_pass_message:</span> <span class="string">抱歉,</span> <span class="string">这个密码看着不太对,</span> <span class="string">请再试试.</span></span><br><span class="line">  <span class="attr">wrong_hash_message:</span> <span class="string">抱歉,</span> <span class="string">这个文章不能被校验,</span> <span class="string">不过您还是能看看解密后的内容.</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<p>你可以在线挑选你喜欢的主题,并应用到你的博客中:</p>
+<ul>
+<li><a href="https://mhexo.github.io/2020/12/23/Theme-Test-Default/">default</a></li>
+<li><a href="https://mhexo.github.io/2020/12/23/Theme-Test-Blink/">blink</a></li>
+<li><a href="https://mhexo.github.io/2020/12/23/Theme-Test-Shrink/">shrink</a></li>
+<li><a href="https://mhexo.github.io/2020/12/23/Theme-Test-Flip/">flip</a></li>
+<li><a href="https://mhexo.github.io/2020/12/23/Theme-Test-Up/">up</a></li>
+<li><a href="https://mhexo.github.io/2020/12/23/Theme-Test-Surge/">surge</a></li>
+<li><a href="https://mhexo.github.io/2020/12/23/Theme-Test-Wave/">wave</a></li>
+<li><a href="https://mhexo.github.io/2020/12/23/Theme-Test-Xray/">xray</a></li>
+</ul>
+<h2 id="许可"><a href="#许可" class="headerlink" title="许可"></a>许可</h2><p>看看 <a href="./LICENSE">LICENSE</a>.</p>
+<h2 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h2><p>Collaborator - <a href="https://github.com/xiazeyu">xiazeyu</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Linux 常用命令</title>
-    <url>/2024/04/23/Linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <url>/2024/04/23/00/</url>
     <content><![CDATA[<h1 id="Linux-常用命令"><a href="#Linux-常用命令" class="headerlink" title="Linux 常用命令"></a>Linux 常用命令</h1><h3 id="1-Linux-目录结构"><a href="#1-Linux-目录结构" class="headerlink" title="1. Linux 目录结构"></a>1. Linux 目录结构</h3><blockquote>
 <p>Linux 目录结构不分盘分区，仅有一个【根目录 /】作为整个 Linux 文件系统/目录结构的开端，根据不同的功能划分不同的文件夹，已【树状】结构分别整个文件系统. 根目录以后很多文件夹，例如: lib，dev，sys… 对于用户而言最重要的是 <strong>home 目录的个人文件夹</strong>。</p>
 <p>主要的目录:</p>
@@ -69,7 +174,7 @@
 <blockquote>
 <p>列表模式下内容详解</p>
 </blockquote>
-<p><img data-src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRVhtNk9ONjdVakZLcmhFLXJXU1hhem9CNHE0b1RNUXhlTlFhR3NTcENwQkVzZz9lPVRrUUFTTw.png" alt="18-终端列表模式查看文件效果"></p>
+<p><img src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRVhtNk9ONjdVakZLcmhFLXJXU1hhem9CNHE0b1RNUXhlTlFhR3NTcENwQkVzZz9lPVRrUUFTTw.png" alt="18-终端列表模式查看文件效果"></p>
 <h4 id="3-4-创建文件-touch-和创建文件夹-mkdir"><a href="#3-4-创建文件-touch-和创建文件夹-mkdir" class="headerlink" title="3.4 创建文件 touch 和创建文件夹 mkdir"></a>3.4 创建文件 touch 和创建文件夹 mkdir</h4><blockquote>
 <p>touch 用于创建普通文件，注意事项:</p>
 <ul>
@@ -123,14 +228,262 @@
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu 基本配置和 MarkDown 文档使用教程</title>
+    <url>/2024/05/02/26/</url>
+    <content><![CDATA[<h1 id="Ubuntu-基本配置和-MarkDown-文档使用教程"><a href="#Ubuntu-基本配置和-MarkDown-文档使用教程" class="headerlink" title="Ubuntu 基本配置和 MarkDown 文档使用教程"></a>Ubuntu 基本配置和 MarkDown 文档使用教程</h1><h2 id="1-Ubuntu-基本配置"><a href="#1-Ubuntu-基本配置" class="headerlink" title="1. Ubuntu 基本配置"></a>1. Ubuntu 基本配置</h2><h3 id="1-1-Ubuntu-概述"><a href="#1-1-Ubuntu-概述" class="headerlink" title="1.1 Ubuntu 概述"></a>1.1 Ubuntu 概述</h3><blockquote>
+<p>Ubuntu 是一个流行的基于 Linux 的操作系统，它是由南非的一家公司 Canonical Ltd. 开发和维护的。Ubuntu 基于 Debian 发行版，以其用户友好性、稳定性和免费开源的特点而闻名。</p>
+<p>嵌入式设备驱动编程和设备所需系统基本首选 Ubuntu 系统。</p>
+</blockquote>
+<h3 id="1-2-VMTools-安装"><a href="#1-2-VMTools-安装" class="headerlink" title="1.2 VMTools 安装"></a>1.2 VMTools 安装</h3><blockquote>
+<p>VMTools  VMWare 软件针对于虚拟机内部从操作系统，提供的一个辅助插件，可以更好的适配当前虚拟机系统内容，同时可以打通 Windows 操作系统和 VMWare 内部虚拟机之间的关系。</p>
+</blockquote>
+<blockquote>
+<p>Ubuntu 虚拟机启动之后选择安装 VMWare Tools</p>
+</blockquote>
+<img src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRVdPbTVPQXdYYjlCdDdYLWFOQkl3N29CTUlYN2E3X09tNFJKQnROUHplb1ljZz9lPWZGMjNIeA.png" style="zoom:67%;">
+
+<blockquote>
+<p>找到对应的光驱位置，打开VMWare Tools 光盘内容，同步解压</p>
+</blockquote>
+<img src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRVVkRVJTNl9nWkJCaTdPcUs0emNhZVlCY2M2bEtPaTRDRTJuaWRqd0drWjJGdz9lPWdzRlJYaw.png" style="zoom:67%;">
+
+<blockquote>
+<p>提取压缩包内容到目标文件夹</p>
+</blockquote>
+<img src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRWFCS3hLZmFvbkJGZ1VENU8xTU5NejRCTGpPM2hhRGFqZGhRMFhFSU9rbk9UZz9lPXAwQkNjOA.png" style="zoom:67%;">
+
+<blockquote>
+<p>解压之后的桌面效果</p>
+</blockquote>
+<img src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRVpySllPRXd3cjFNakU1OXhSZlZTYklCQW12ZFdxTzhLNTNiOEROR21kbGtwdz9lPWZaMWhkeg.png" style="zoom:67%;">
+
+<blockquote>
+<p>终端打开目标文件夹</p>
+</blockquote>
+<img src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRWNoMjFHVFo5NTlJczU1cVNSSnhSRU1CcHk3QW95ZUhfaE1KR3k0R2hHaUxOZz9lPWdXVzdiZQ.png" style="zoom:67%;">
+
+<blockquote>
+<p>终端打开效果</p>
+</blockquote>
+<img src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRVVQdUdXbEtYQVpLdTZGNFp2X3VTTVVCNVVIVHVhTFMzQVphdjktdDduNjhyUT9lPVZaejZveQ.png" style="zoom:67%;">
+
+<blockquote>
+<p>执行目标命令，同时确认安装 VMWare Tools</p>
+</blockquote>
+<img src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRVJCVVNOamxpZHRBZ1hOeEtqLXNmdk1Cc1JYdXdFcUdVUTFfQmFXX2dwa0VCdz9lPU51TW5GMA.png" style="zoom:67%;">
+
+<blockquote>
+<p>VMWare Tools 安装成功</p>
+</blockquote>
+<img src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRWZwbjFrc0t0NmxGamVDZGN4bGRJRGtCRjF2Ulk1aHFhenZiTG9ybUJjVkJ4UT9lPU9panIyWQ.png" style="zoom:67%;">
+
+<blockquote>
+<p>系统登出之后生效</p>
+</blockquote>
+<img src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRVQ4MThaUjNEUjFHbWtjdU5xT0tXQ01CQ0xjc2dBXzBsT1pEZTMwbTNwanQ4UT9lPXJ0YWZBcw.png" style="zoom:67%;">
+
+<h3 id="1-3-更新数据源"><a href="#1-3-更新数据源" class="headerlink" title="1.3 更新数据源"></a>1.3 更新数据源</h3><blockquote>
+<p>Ubuntu 有【软件中心】，软件中心可以提供软件安装内容，一般情况下 Ubuntu 默认的软件数据源都是国外镜像，会影响软件更新速度，甚至于无法更新。一般会选择国内的数据源进行软件安装和更新。比较常用的数据源</p>
+<ul>
+<li>阿里巴巴数据源</li>
+<li>清华大学数据源</li>
+</ul>
+<p>当前安装的 Ubuntu 默认软件源是 清华大学数据源，完成【数据源更新】操作</p>
+</blockquote>
+<blockquote>
+<p>桌面终端打开</p>
+</blockquote>
+<p><img src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRWZKeTdWZ1Fpc3hPalg4WjM1YWJfeGtCOFVuNzdEdVFVdGtYT3JTMnJkVngxUT9lPWRkUkw3Vg.png"></p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">qf@qf:~$ # 更新数据源操作</span><br><span class="line">qf@qf:~$ sudo apt-get update</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRWJQNXhwRmdfdUZMbmRFM2pQeUllNWdCQ0VOZ2ZheUd6SlI3Z0JhUHdnY1ZNdz9lPTFCUXpJQw.png"></p>
+<h3 id="1-4-必要软件安装"><a href="#1-4-必要软件安装" class="headerlink" title="1.4 必要软件安装"></a>1.4 必要软件安装</h3><blockquote>
+<p>安装确认以下软件</p>
+<ul>
+<li><p>编译工具 GCC G++</p>
+</li>
+<li><p>共享文件夹 Samba</p>
+</li>
+<li><p>SSH 信道 openssh-server</p>
+</li>
+<li><p>编辑工具 vim</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>安装命令</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt-get install 软件名称</span><br></pre></td></tr></tbody></table></figure>
+
+<p>安装目标软件</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt-get install gcc # 系统默认就是最新版本</span><br><span class="line">sudo apt-get install g++ # 系统默认就是最新版本</span><br><span class="line">sudo apt-get install vim # 需要确认安装 【编辑工具】</span><br><span class="line">sudo apt-get install ctags # 需要确认安装 【编辑工具辅助插件】</span><br><span class="line">sudo apt-get install samba # 需要确认安装 【共享文件夹软件】</span><br><span class="line">sudo apt-get install openssh-server # 远程访问工具服务器软件，可以提供 SSH 方式访问操作服务器内容。</span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+<h3 id="1-5-Samba-共享文件夹服务配置"><a href="#1-5-Samba-共享文件夹服务配置" class="headerlink" title="1.5 Samba 共享文件夹服务配置"></a>1.5 Samba 共享文件夹服务配置</h3><blockquote>
+<p>Samba 需要配置共享文件夹对应的路径，权限和用户账号。</p>
+</blockquote>
+<blockquote>
+<p>编辑 Samba 配置文件</p>
+<p>通过终端，利用 gedit 文本编辑器打开目标 samba 服务器配置文件</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo gedit /etc/samba/smb.conf</span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+<blockquote>
+<p>在打开的配置文件末尾添加以下内容，根据个人电脑内容修改</p>
+<ul>
+<li>仅需要将所有的 qf 修改为个人电脑登录用户名称</li>
+</ul>
+</blockquote>
+<figure class="highlight abnf"><table><tbody><tr><td class="code"><pre><span class="line">[qf]</span><br><span class="line">    comment <span class="operator">=</span> samba home directory </span><br><span class="line">    path <span class="operator">=</span> /home/qf</span><br><span class="line">    public <span class="operator">=</span> yes</span><br><span class="line">    browseable <span class="operator">=</span> yes</span><br><span class="line">    public <span class="operator">=</span> yes</span><br><span class="line">    read only <span class="operator">=</span> no</span><br><span class="line">    valid users <span class="operator">=</span> qf</span><br><span class="line">    create mask <span class="operator">=</span> <span class="number">0777</span></span><br><span class="line">    directory mask <span class="operator">=</span> <span class="number">0777</span> </span><br><span class="line">    force user <span class="operator">=</span> qf</span><br><span class="line">    force group <span class="operator">=</span> qf</span><br><span class="line">    available <span class="operator">=</span> yes</span><br></pre></td></tr></tbody></table></figure>
+
+<img src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRWV3NlFCTDJxU3hEakpzZjFhbmhWQjRCOERhQUlaZk41LS1RdFlCUUFiVXIzdz9lPVBKemtUYg.png" style="zoom:67%;">
+
+<blockquote>
+<p>注册用户，同时重启 Samba 服务器</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo smbpasswd -a qf # -a 之后是对应当前 Samba 服务器登录用户</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>需要输入两次密码进行确认，密码同样是登录 Samba 服务器对应密码，</li>
+</ul>
+</blockquote>
+<p><img src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRVdRMDlpTlZKRE5Ea1h3MHNZRzJTTVFCelAzTWMyQ1RzczRxTnZqNVMyOVNNdz9lPW1yQkkyeQ.png"></p>
+<blockquote>
+<p>重启 Samba 服务器，生效当前配置操作和用户注册操作</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo /etc/init.d/smbd restart</span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+<p><img src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRVRPemp6S0p6azlHZzdReThzbFN6TUVCVUswbHl0aXRwOW56N2tjSDMtNWlEUT9lPUsxUVJTMQ.png"></p>
+<blockquote>
+<p>确认 IP 地址和 Windows 远程连接目标 IP Samba 服务器</p>
+</blockquote>
+<p><img src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRWM3T0NoRG9PaWxDbG9QV2FrZ2M4emdCNHBrWWljUU1GcThwY2JjZ1RJanRyUT9lPW16bUR3Vw.png"></p>
+<img src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRWFwbC02RU5rSHRJZzJFM0g0ZHZQMXNCWklTZnZqVUpkdFJ3NVZtM0hUeU05UT9lPUd6SlNiTg.png" alt="16-Windows输入Samba 服务用户和命名" style="zoom:67%;">
+
+<h3 id="1-6-vim-编辑器配置"><a href="#1-6-vim-编辑器配置" class="headerlink" title="1.6 vim 编辑器配置"></a>1.6 vim 编辑器配置</h3><blockquote>
+<p>配置 Vim 编辑器，提供必要的颜色提示，缩进操作，行号提示等内容</p>
+</blockquote>
+<p><img src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRVlQSEpsWE1DR0JBdE1sWExXNFVCd3NCYWdUQUNVUC1GRHUxWTIyRC1xcFh6Zz9lPU5rRnlKUA.png"></p>
+<h2 id="2-MarkDown-文档格式"><a href="#2-MarkDown-文档格式" class="headerlink" title="2. MarkDown 文档格式"></a>2. MarkDown 文档格式</h2><blockquote>
+<p>基于 HTML 技术在程序员之间非常流行的一种文档形式，广泛用于各大程序社区，例如 CSDN，GitHub，简书，stackoverflow。支持文本，代码块，引用，图片，超链接，表格…</p>
+</blockquote>
+<h3 id="2-1-标题"><a href="#2-1-标题" class="headerlink" title="2.1 标题"></a>2.1 标题</h3><blockquote>
+<p>MarkDown 标题形式和 HTML 文件标题一致，都是 6 级标题，一级标题到六级标题，对应快捷键是 **<code>Ctrl + 1 ~ Ctrl + 6</code>**，也可以使用源码模式 # 开头，# 个数决定标题的级别</p>
+</blockquote>
+<p><img src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRWVZaU9UTVhidUZQdkt4V2FjQ1UzV0lCai0zZV9DdHJtbW5Pdl84SmRlejU2UT9lPVBxc3R0OA.png"></p>
+<h3 id="2-2-引用"><a href="#2-2-引用" class="headerlink" title="2.2 引用"></a>2.2 引用</h3><blockquote>
+<p>目前内容对于当前文本就是引用模式，一般用于解释内容。快捷键是 **<code>Ctrl + Shift + Q</code>**。</p>
+</blockquote>
+<h3 id="2-3-列表"><a href="#2-3-列表" class="headerlink" title="2.3 列表"></a>2.3 列表</h3><blockquote>
+<p>列表可以用于流程分析，提示，重点内容标记，<strong>分别有，有序列表，无序列表，任务列表</strong></p>
+</blockquote>
+<blockquote>
+<p>有序列表 <strong><code>Ctrl + Shift + [</code></strong></p>
+<ol>
+<li>流程一<ol>
+<li>步骤一</li>
+<li>步骤二<ol>
+<li>流程一，步骤一，内容一</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>流程二</li>
+<li>流程三</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>无序列表 <strong><code>Ctrl + Shift + ]</code></strong></p>
+<ul>
+<li>咖啡<ul>
+<li>拿铁<ul>
+<li>生椰拿铁</li>
+<li>丝绒拿铁</li>
+<li>陨石拿铁</li>
+</ul>
+</li>
+<li>美式</li>
+</ul>
+</li>
+<li>茶<ul>
+<li>绿茶<ul>
+<li>信阳毛尖</li>
+<li>碧螺春</li>
+<li>龙井</li>
+</ul>
+</li>
+<li>红茶<ul>
+<li>大红包</li>
+</ul>
+</li>
+<li>白茶</li>
+</ul>
+</li>
+<li>酒</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>任务列表，没有快捷键需要通过菜单栏 –&gt; 段落 –&gt; 任务列表中使用</p>
+<ul>
+<li><input disabled="" type="checkbox"> 每日作业，案例代码三遍</li>
+<li><input checked="" disabled="" type="checkbox"> 每日练习，打字练习目标 200 英文一分钟</li>
+</ul>
+</blockquote>
+<h3 id="2-4-超链接"><a href="#2-4-超链接" class="headerlink" title="2.4 超链接"></a>2.4 超链接</h3><blockquote>
+<p>快捷方式 <strong><code>Ctrl + K</code></strong></p>
+</blockquote>
+<p><a href="https://www.163.com/dy/article/J0FACBT70553TDTR.html">标题</a></p>
+<h3 id="2-6-图片"><a href="#2-6-图片" class="headerlink" title="2.6 图片"></a>2.6 图片</h3><blockquote>
+<p>快捷方式 <strong><code>Ctrl + Shift + I</code></strong></p>
+<p>图片路径支持本地图片，同时支持<strong>超连接图片</strong></p>
+</blockquote>
+<p><img src="https://img2.baidu.com/it/u=2435866163,3687824417&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=1200&amp;h=800"></p>
+<p><img src="/img/01.jpg"></p>
+<h3 id="2-7-表格"><a href="#2-7-表格" class="headerlink" title="2.7 表格"></a>2.7 表格</h3><blockquote>
+<p>快捷键 <strong><code>Ctrl + T</code></strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">ID</th>
+<th align="center">Name</th>
+<th align="center">Age</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">张三</td>
+<td align="center">16</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">李四</td>
+<td align="center">17</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">王五</td>
+<td align="center">18</td>
+</tr>
+</tbody></table>
+<h3 id="2-8-代码块"><a href="#2-8-代码块" class="headerlink" title="2.8 代码块"></a>2.8 代码块</h3><blockquote>
+<p>代码块内容一般不通过快捷键方式 ，通过 ``` 引入目标代码块，并且可以选择代码块中的代码语言是哪一个。</p>
+</blockquote>
+<figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> * argv[])</span></span><br><span class="line">{</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Hello World!\n"</span>);   </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="2-9-其他补充"><a href="#2-9-其他补充" class="headerlink" title="2.9 其他补充"></a>2.9 其他补充</h3><blockquote>
+<p>加粗 <code>Ctrl + B</code>，<strong>案例</strong></p>
+<p>斜体 <code>Ctrl + I</code>，<em>案例</em></p>
+<p>下划线<code>Ctrl + U</code>，<u>案例</u></p>
+<p>删除线 <code>Shift + Alt + 5</code>，<del>案例</del></p>
+<p><em><strong><u><del>综合案例</del></u></strong></em></p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
     <title>Vim操作和第一行代码</title>
-    <url>/2024/05/03/Vim%E6%93%8D%E4%BD%9C%E5%92%8C%E7%AC%AC%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81/</url>
+    <url>/2024/05/03/14/</url>
     <content><![CDATA[<hr>
 <p>[toc]</p>
 <h2 id="Vim操作和第一行代码"><a href="#Vim操作和第一行代码" class="headerlink" title="Vim操作和第一行代码"></a>Vim操作和第一行代码</h2><h4 id="1-Vim-编辑器"><a href="#1-Vim-编辑器" class="headerlink" title="1. Vim 编辑器"></a>1. Vim 编辑器</h4><h5 id="1-1-Vim-概述"><a href="#1-1-Vim-概述" class="headerlink" title="1.1 Vim 概述"></a>1.1 Vim 概述</h5><blockquote>
 <p>Vim 是一个经典的文本编辑器，特别适用于在终端环境下进行编辑。它具有高度的可定制性和丰富的功能，是程序员和系统管理员的首选工具之一。Vim 具有很多强大的特性，包括多级撤销、语法高亮、代码折叠、插件支持等等。</p>
 </blockquote>
-<h5 id="1-2-vim-三种模式"><a href="#1-2-vim-三种模式" class="headerlink" title="1.2 vim 三种模式"></a>1.2 vim 三种模式</h5><p><img data-src="/img/04-vim%E4%B8%8D%E5%90%8C%E7%9A%84%E6%A8%A1%E5%BC%8F%E6%A6%82%E8%BF%B0.png"></p>
+<h5 id="1-2-vim-三种模式"><a href="#1-2-vim-三种模式" class="headerlink" title="1.2 vim 三种模式"></a>1.2 vim 三种模式</h5><p><img src="/img/04-vim%E4%B8%8D%E5%90%8C%E7%9A%84%E6%A8%A1%E5%BC%8F%E6%A6%82%E8%BF%B0.png"></p>
 <h5 id="1-3-vim-插入模式"><a href="#1-3-vim-插入模式" class="headerlink" title="1.3 vim 插入模式"></a>1.3 vim 插入模式</h5><blockquote>
 <p>插入模式在 Vim 左下角有对应的提示，告知用户当前是插入模式。可以直接写代码，修改文本等一系列操作。</p>
 </blockquote>
@@ -257,8 +610,9 @@
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/2024/05/04/hello-world/</url>
+    <url>/2024/05/05/21/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
@@ -271,254 +625,6 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Ubuntu 基本配置和 MarkDown 文档使用教程</title>
-    <url>/2024/05/02/Ubuntu-%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E5%92%8C-MarkDown-%E6%96%87%E6%A1%A3%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="Ubuntu-基本配置和-MarkDown-文档使用教程"><a href="#Ubuntu-基本配置和-MarkDown-文档使用教程" class="headerlink" title="Ubuntu 基本配置和 MarkDown 文档使用教程"></a>Ubuntu 基本配置和 MarkDown 文档使用教程</h1><h2 id="1-Ubuntu-基本配置"><a href="#1-Ubuntu-基本配置" class="headerlink" title="1. Ubuntu 基本配置"></a>1. Ubuntu 基本配置</h2><h3 id="1-1-Ubuntu-概述"><a href="#1-1-Ubuntu-概述" class="headerlink" title="1.1 Ubuntu 概述"></a>1.1 Ubuntu 概述</h3><blockquote>
-<p>Ubuntu 是一个流行的基于 Linux 的操作系统，它是由南非的一家公司 Canonical Ltd. 开发和维护的。Ubuntu 基于 Debian 发行版，以其用户友好性、稳定性和免费开源的特点而闻名。</p>
-<p>嵌入式设备驱动编程和设备所需系统基本首选 Ubuntu 系统。</p>
-</blockquote>
-<h3 id="1-2-VMTools-安装"><a href="#1-2-VMTools-安装" class="headerlink" title="1.2 VMTools 安装"></a>1.2 VMTools 安装</h3><blockquote>
-<p>VMTools  VMWare 软件针对于虚拟机内部从操作系统，提供的一个辅助插件，可以更好的适配当前虚拟机系统内容，同时可以打通 Windows 操作系统和 VMWare 内部虚拟机之间的关系。</p>
-</blockquote>
-<blockquote>
-<p>Ubuntu 虚拟机启动之后选择安装 VMWare Tools</p>
-</blockquote>
-<img data-src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRVdPbTVPQXdYYjlCdDdYLWFOQkl3N29CTUlYN2E3X09tNFJKQnROUHplb1ljZz9lPWZGMjNIeA.png" style="zoom:67%;">
-
-<blockquote>
-<p>找到对应的光驱位置，打开VMWare Tools 光盘内容，同步解压</p>
-</blockquote>
-<img data-src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRVVkRVJTNl9nWkJCaTdPcUs0emNhZVlCY2M2bEtPaTRDRTJuaWRqd0drWjJGdz9lPWdzRlJYaw.png" style="zoom:67%;">
-
-<blockquote>
-<p>提取压缩包内容到目标文件夹</p>
-</blockquote>
-<img data-src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRWFCS3hLZmFvbkJGZ1VENU8xTU5NejRCTGpPM2hhRGFqZGhRMFhFSU9rbk9UZz9lPXAwQkNjOA.png" style="zoom:67%;">
-
-<blockquote>
-<p>解压之后的桌面效果</p>
-</blockquote>
-<img data-src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRVpySllPRXd3cjFNakU1OXhSZlZTYklCQW12ZFdxTzhLNTNiOEROR21kbGtwdz9lPWZaMWhkeg.png" style="zoom:67%;">
-
-<blockquote>
-<p>终端打开目标文件夹</p>
-</blockquote>
-<img data-src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRWNoMjFHVFo5NTlJczU1cVNSSnhSRU1CcHk3QW95ZUhfaE1KR3k0R2hHaUxOZz9lPWdXVzdiZQ.png" style="zoom:67%;">
-
-<blockquote>
-<p>终端打开效果</p>
-</blockquote>
-<img data-src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRVVQdUdXbEtYQVpLdTZGNFp2X3VTTVVCNVVIVHVhTFMzQVphdjktdDduNjhyUT9lPVZaejZveQ.png" style="zoom:67%;">
-
-<blockquote>
-<p>执行目标命令，同时确认安装 VMWare Tools</p>
-</blockquote>
-<img data-src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRVJCVVNOamxpZHRBZ1hOeEtqLXNmdk1Cc1JYdXdFcUdVUTFfQmFXX2dwa0VCdz9lPU51TW5GMA.png" style="zoom:67%;">
-
-<blockquote>
-<p>VMWare Tools 安装成功</p>
-</blockquote>
-<img data-src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRWZwbjFrc0t0NmxGamVDZGN4bGRJRGtCRjF2Ulk1aHFhenZiTG9ybUJjVkJ4UT9lPU9panIyWQ.png" style="zoom:67%;">
-
-<blockquote>
-<p>系统登出之后生效</p>
-</blockquote>
-<img data-src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRVQ4MThaUjNEUjFHbWtjdU5xT0tXQ01CQ0xjc2dBXzBsT1pEZTMwbTNwanQ4UT9lPXJ0YWZBcw.png" style="zoom:67%;">
-
-<h3 id="1-3-更新数据源"><a href="#1-3-更新数据源" class="headerlink" title="1.3 更新数据源"></a>1.3 更新数据源</h3><blockquote>
-<p>Ubuntu 有【软件中心】，软件中心可以提供软件安装内容，一般情况下 Ubuntu 默认的软件数据源都是国外镜像，会影响软件更新速度，甚至于无法更新。一般会选择国内的数据源进行软件安装和更新。比较常用的数据源</p>
-<ul>
-<li>阿里巴巴数据源</li>
-<li>清华大学数据源</li>
-</ul>
-<p>当前安装的 Ubuntu 默认软件源是 清华大学数据源，完成【数据源更新】操作</p>
-</blockquote>
-<blockquote>
-<p>桌面终端打开</p>
-</blockquote>
-<p><img data-src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRWZKeTdWZ1Fpc3hPalg4WjM1YWJfeGtCOFVuNzdEdVFVdGtYT3JTMnJkVngxUT9lPWRkUkw3Vg.png"></p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">qf@qf:~$ # 更新数据源操作</span><br><span class="line">qf@qf:~$ sudo apt-get update</span><br></pre></td></tr></tbody></table></figure>
-
-<p><img data-src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRWJQNXhwRmdfdUZMbmRFM2pQeUllNWdCQ0VOZ2ZheUd6SlI3Z0JhUHdnY1ZNdz9lPTFCUXpJQw.png"></p>
-<h3 id="1-4-必要软件安装"><a href="#1-4-必要软件安装" class="headerlink" title="1.4 必要软件安装"></a>1.4 必要软件安装</h3><blockquote>
-<p>安装确认以下软件</p>
-<ul>
-<li><p>编译工具 GCC G++</p>
-</li>
-<li><p>共享文件夹 Samba</p>
-</li>
-<li><p>SSH 信道 openssh-server</p>
-</li>
-<li><p>编辑工具 vim</p>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>安装命令</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt-get install 软件名称</span><br></pre></td></tr></tbody></table></figure>
-
-<p>安装目标软件</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt-get install gcc # 系统默认就是最新版本</span><br><span class="line">sudo apt-get install g++ # 系统默认就是最新版本</span><br><span class="line">sudo apt-get install vim # 需要确认安装 【编辑工具】</span><br><span class="line">sudo apt-get install ctags # 需要确认安装 【编辑工具辅助插件】</span><br><span class="line">sudo apt-get install samba # 需要确认安装 【共享文件夹软件】</span><br><span class="line">sudo apt-get install openssh-server # 远程访问工具服务器软件，可以提供 SSH 方式访问操作服务器内容。</span><br></pre></td></tr></tbody></table></figure>
-</blockquote>
-<h3 id="1-5-Samba-共享文件夹服务配置"><a href="#1-5-Samba-共享文件夹服务配置" class="headerlink" title="1.5 Samba 共享文件夹服务配置"></a>1.5 Samba 共享文件夹服务配置</h3><blockquote>
-<p>Samba 需要配置共享文件夹对应的路径，权限和用户账号。</p>
-</blockquote>
-<blockquote>
-<p>编辑 Samba 配置文件</p>
-<p>通过终端，利用 gedit 文本编辑器打开目标 samba 服务器配置文件</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo gedit /etc/samba/smb.conf</span><br></pre></td></tr></tbody></table></figure>
-</blockquote>
-<blockquote>
-<p>在打开的配置文件末尾添加以下内容，根据个人电脑内容修改</p>
-<ul>
-<li>仅需要将所有的 qf 修改为个人电脑登录用户名称</li>
-</ul>
-</blockquote>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">[qf]</span><br><span class="line">    comment = samba home directory </span><br><span class="line">    path = /home/qf</span><br><span class="line">    public = yes</span><br><span class="line">    browseable = yes</span><br><span class="line">    public = yes</span><br><span class="line">    read only = no</span><br><span class="line">    valid users = qf</span><br><span class="line">    create mask = 0777</span><br><span class="line">    directory mask = 0777 </span><br><span class="line">    force user = qf</span><br><span class="line">    force group = qf</span><br><span class="line">    available = yes</span><br></pre></td></tr></tbody></table></figure>
-
-<img data-src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRWV3NlFCTDJxU3hEakpzZjFhbmhWQjRCOERhQUlaZk41LS1RdFlCUUFiVXIzdz9lPVBKemtUYg.png" style="zoom:67%;">
-
-<blockquote>
-<p>注册用户，同时重启 Samba 服务器</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo smbpasswd -a qf # -a 之后是对应当前 Samba 服务器登录用户</span><br></pre></td></tr></tbody></table></figure>
-
-<ul>
-<li>需要输入两次密码进行确认，密码同样是登录 Samba 服务器对应密码，</li>
-</ul>
-</blockquote>
-<p><img data-src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRVdRMDlpTlZKRE5Ea1h3MHNZRzJTTVFCelAzTWMyQ1RzczRxTnZqNVMyOVNNdz9lPW1yQkkyeQ.png"></p>
-<blockquote>
-<p>重启 Samba 服务器，生效当前配置操作和用户注册操作</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo /etc/init.d/smbd restart</span><br></pre></td></tr></tbody></table></figure>
-</blockquote>
-<p><img data-src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRVRPemp6S0p6azlHZzdReThzbFN6TUVCVUswbHl0aXRwOW56N2tjSDMtNWlEUT9lPUsxUVJTMQ.png"></p>
-<blockquote>
-<p>确认 IP 地址和 Windows 远程连接目标 IP Samba 服务器</p>
-</blockquote>
-<p><img data-src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRWM3T0NoRG9PaWxDbG9QV2FrZ2M4emdCNHBrWWljUU1GcThwY2JjZ1RJanRyUT9lPW16bUR3Vw.png"></p>
-<img data-src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRWFwbC02RU5rSHRJZzJFM0g0ZHZQMXNCWklTZnZqVUpkdFJ3NVZtM0hUeU05UT9lPUd6SlNiTg.png" alt="16-Windows输入Samba 服务用户和命名" style="zoom:67%;">
-
-<h3 id="1-6-vim-编辑器配置"><a href="#1-6-vim-编辑器配置" class="headerlink" title="1.6 vim 编辑器配置"></a>1.6 vim 编辑器配置</h3><blockquote>
-<p>配置 Vim 编辑器，提供必要的颜色提示，缩进操作，行号提示等内容</p>
-</blockquote>
-<p><img data-src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRVlQSEpsWE1DR0JBdE1sWExXNFVCd3NCYWdUQUNVUC1GRHUxWTIyRC1xcFh6Zz9lPU5rRnlKUA.png"></p>
-<h2 id="2-MarkDown-文档格式"><a href="#2-MarkDown-文档格式" class="headerlink" title="2. MarkDown 文档格式"></a>2. MarkDown 文档格式</h2><blockquote>
-<p>基于 HTML 技术在程序员之间非常流行的一种文档形式，广泛用于各大程序社区，例如 CSDN，GitHub，简书，stackoverflow。支持文本，代码块，引用，图片，超链接，表格…</p>
-</blockquote>
-<h3 id="2-1-标题"><a href="#2-1-标题" class="headerlink" title="2.1 标题"></a>2.1 标题</h3><blockquote>
-<p>MarkDown 标题形式和 HTML 文件标题一致，都是 6 级标题，一级标题到六级标题，对应快捷键是 **<code>Ctrl + 1 ~ Ctrl + 6</code>**，也可以使用源码模式 # 开头，# 个数决定标题的级别</p>
-</blockquote>
-<p><img data-src="https://dlink.host/sharepoint/aHR0cHM6Ly94aXV0cmltLW15LnNoYXJlcG9pbnQuY29tLzppOi9nL3BlcnNvbmFsL2JfeGl1dHJpbV9vbm1pY3Jvc29mdF9jb20vRWVZaU9UTVhidUZQdkt4V2FjQ1UzV0lCai0zZV9DdHJtbW5Pdl84SmRlejU2UT9lPVBxc3R0OA.png"></p>
-<h3 id="2-2-引用"><a href="#2-2-引用" class="headerlink" title="2.2 引用"></a>2.2 引用</h3><blockquote>
-<p>目前内容对于当前文本就是引用模式，一般用于解释内容。快捷键是 **<code>Ctrl + Shift + Q</code>**。</p>
-</blockquote>
-<h3 id="2-3-列表"><a href="#2-3-列表" class="headerlink" title="2.3 列表"></a>2.3 列表</h3><blockquote>
-<p>列表可以用于流程分析，提示，重点内容标记，<strong>分别有，有序列表，无序列表，任务列表</strong></p>
-</blockquote>
-<blockquote>
-<p>有序列表 <strong><code>Ctrl + Shift + [</code></strong></p>
-<ol>
-<li>流程一<ol>
-<li>步骤一</li>
-<li>步骤二<ol>
-<li>流程一，步骤一，内容一</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>流程二</li>
-<li>流程三</li>
-</ol>
-</blockquote>
-<blockquote>
-<p>无序列表 <strong><code>Ctrl + Shift + ]</code></strong></p>
-<ul>
-<li>咖啡<ul>
-<li>拿铁<ul>
-<li>生椰拿铁</li>
-<li>丝绒拿铁</li>
-<li>陨石拿铁</li>
-</ul>
-</li>
-<li>美式</li>
-</ul>
-</li>
-<li>茶<ul>
-<li>绿茶<ul>
-<li>信阳毛尖</li>
-<li>碧螺春</li>
-<li>龙井</li>
-</ul>
-</li>
-<li>红茶<ul>
-<li>大红包</li>
-</ul>
-</li>
-<li>白茶</li>
-</ul>
-</li>
-<li>酒</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>任务列表，没有快捷键需要通过菜单栏 –&gt; 段落 –&gt; 任务列表中使用</p>
-<ul>
-<li><input disabled="" type="checkbox"> 每日作业，案例代码三遍</li>
-<li><input checked="" disabled="" type="checkbox"> 每日练习，打字练习目标 200 英文一分钟</li>
-</ul>
-</blockquote>
-<h3 id="2-4-超链接"><a href="#2-4-超链接" class="headerlink" title="2.4 超链接"></a>2.4 超链接</h3><blockquote>
-<p>快捷方式 <strong><code>Ctrl + K</code></strong></p>
-</blockquote>
-<p><a href="https://www.163.com/dy/article/J0FACBT70553TDTR.html">标题</a></p>
-<h3 id="2-6-图片"><a href="#2-6-图片" class="headerlink" title="2.6 图片"></a>2.6 图片</h3><blockquote>
-<p>快捷方式 <strong><code>Ctrl + Shift + I</code></strong></p>
-<p>图片路径支持本地图片，同时支持<strong>超连接图片</strong></p>
-</blockquote>
-<p><img data-src="https://img2.baidu.com/it/u=2435866163,3687824417&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=1200&amp;h=800"></p>
-<p><img data-src="/img/01.jpg"></p>
-<h3 id="2-7-表格"><a href="#2-7-表格" class="headerlink" title="2.7 表格"></a>2.7 表格</h3><blockquote>
-<p>快捷键 <strong><code>Ctrl + T</code></strong></p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th align="center">ID</th>
-<th align="center">Name</th>
-<th align="center">Age</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">1</td>
-<td align="center">张三</td>
-<td align="center">16</td>
-</tr>
-<tr>
-<td align="center">2</td>
-<td align="center">李四</td>
-<td align="center">17</td>
-</tr>
-<tr>
-<td align="center">3</td>
-<td align="center">王五</td>
-<td align="center">18</td>
-</tr>
-</tbody></table>
-<h3 id="2-8-代码块"><a href="#2-8-代码块" class="headerlink" title="2.8 代码块"></a>2.8 代码块</h3><blockquote>
-<p>代码块内容一般不通过快捷键方式 ，通过 ``` 引入目标代码块，并且可以选择代码块中的代码语言是哪一个。</p>
-</blockquote>
-<figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> * argv[])</span></span><br><span class="line">{</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Hello World!\n"</span>);   </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="2-9-其他补充"><a href="#2-9-其他补充" class="headerlink" title="2.9 其他补充"></a>2.9 其他补充</h3><blockquote>
-<p>加粗 <code>Ctrl + B</code>，<strong>案例</strong></p>
-<p>斜体 <code>Ctrl + I</code>，<em>案例</em></p>
-<p>下划线<code>Ctrl + U</code>，<u>案例</u></p>
-<p>删除线 <code>Shift + Alt + 5</code>，<del>案例</del></p>
-<p><em><strong><u><del>综合案例</del></u></strong></em></p>
-</blockquote>
 ]]></content>
   </entry>
 </search>
