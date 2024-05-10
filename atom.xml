@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-05-09T06:41:17.902Z</updated>
+  <updated>2024-05-10T06:12:47.056Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>群晖常用命令</title>
+    <link href="http://example.com/2024/05/10/47/"/>
+    <id>http://example.com/2024/05/10/47/</id>
+    <published>2024-05-10T06:12:47.597Z</published>
+    <updated>2024-05-10T06:12:47.056Z</updated>
+    
+    
+    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
+    
+    
+    
+    <category term="群晖" scheme="http://example.com/categories/%E7%BE%A4%E6%99%96/"/>
+    
+    
+    <category term="终端命令" scheme="http://example.com/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/"/>
+    
+    <category term="Docker" scheme="http://example.com/tags/Docker/"/>
+    
+    <category term="群晖" scheme="http://example.com/tags/%E7%BE%A4%E6%99%96/"/>
+    
+  </entry>
   
   <entry>
     <title>MarkDown 语法教程</title>

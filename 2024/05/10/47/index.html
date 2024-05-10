@@ -1,0 +1,223 @@
+<!DOCTYPE html><html lang="[&quot;zh-CN&quot;,&quot;en&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>群晖常用命令 | Xiutrim</title><meta name="author" content="LCL"><meta name="copyright" content="LCL"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="群晖常用命令">
+<meta property="og:url" content="http://example.com/2024/05/10/47/index.html">
+<meta property="og:site_name" content="Xiutrim">
+<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/xiutrim/Images/main/img/%E5%9B%A2%E5%AD%90%E5%A4%A7%E5%AE%B6%E6%97%8F.jpg">
+<meta property="article:published_time" content="2024-05-10T06:12:47.597Z">
+<meta property="article:modified_time" content="2024-05-10T06:12:47.056Z">
+<meta property="article:author" content="LCL">
+<meta property="article:tag" content="终端命令">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="群晖">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/xiutrim/Images/main/img/%E5%9B%A2%E5%AD%90%E5%A4%A7%E5%AE%B6%E6%97%8F.jpg"><link rel="shortcut icon" href="/img/apple-touch-icon-next.png"><link rel="canonical" href="http://example.com/2024/05/10/47/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":5,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":50},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体中文","cht_to_chs":"你已切换为简体中文","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-center"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '群晖常用命令',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-05-10 14:12:47'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/modify.css"><script defer src="https://cn.vercount.one/js"></script><meta name="generator" content="Hexo 7.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Xiutrim" type="application/atom+xml">
+</head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+document.addEventListener('pjax:send', () => {
+  Pace.restart()
+})
+</script><link rel="stylesheet" href="/css/flash.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://emotion.acs.pw/emotion/bilibili_hotKey/标准结局.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Xiutrim"><span class="site-name">Xiutrim</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">群晖常用命令</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-10T06:12:47.597Z" title="发表于 2024-05-10 14:12:47">2024-05-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-10T06:12:47.056Z" title="更新于 2024-05-10 14:12:47">2024-05-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BE%A4%E6%99%96/">群晖</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">6</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="群晖常用命令"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2024/05/10/47/#post-comment"><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div><article class="post-content" id="article-container"><div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="08b934ebb57f97a3ef5206597249b539dbd023af5b2d4c8b859ccd7be90b4917">197b58f8171591052db2d7a0a756303c863b6460a5f2c45f4c8ee31723441382ceca8fe5441e0d246e5d08d8a6ff152227adca8f1fd6c21c10c42bbb8a5d88240b809008397791c55ef7944f653b349ab29eaaabf0d360eba792a7d4a6eaabc7ba530bc703577a2bcdeb4058e61aeff823ed023a1e5b4612d06fcf250dfe971aff4cba15ff1b84d9f12d2ff84572a5e514c54e0b32bb3cc6db8c9bec8d8833d7870b52cb20d2597fa8fa420e14f9b92975e002306c555a5181e9be7d8e0e7daa2b4a9c0ead1c959e6a283353bba4c0b09f0cbea8c39e297312b159f693714739a6591152cf57ea5dfbc0fceb5ccdeb576055d991c674ff94d817bf6108992323e8240fd909b9317363ae04ef180d38d59b50f8fbca14fd9e48911779f5ba8b597cc021cd6fa8610fe7d33b1f180375205d2e31b20fb929dcccea9541c7321e95c0c763d65a97839f1dff0499d86366bed3c317dd194acb95ba31991df2a414105f78e9204304f0e8da367753b55eae92ebd85761789a73e8c296e6aa3e160d03b68814b37ce3e1128720c4195d8b6a9b73656af5bdc6156e41ac2928195e8fbf54cc957ef9ea7e1aa0034838cea4a77d739c7aa44aa8bea85d87539f559ab857619989c7b5b3fb02caaab2e5e9aef8c476a214dc83d15778d2029ad23b37bb1f6eb2ec28c0168e57f175fcbfacef50f352b6d7d35efd6a98bd3581e29821886283ed1cedc01922f27dfd690b6608dd761163ce1228873b9057fc96c6a3215db79c58623627685f5e174109ca4585ab9e30626fedf6517c79eb685da70a397086cfc559ae5521cd901aef54cb0e6d952a495d31d9d56d4c171b202ed2453fef0b08ff10ce60c6c1d927c3d1b35df2907e9f82d295ce9c2c2a807d5fd46a60304d77e1ae1c2633f0131abe112c53f4e44e6ffa484c906cfe3b0a216a7031b94c8be0e85dc9cf8568d797c3220eca34afda8effb4482bc308924ff8959d3730a59b9247cd0468c6e8da36eeaea1d22fabf992839695629b58b82238c231f7547847e23b312458201715738f01b8b2880bd6ce167b40525325dd84aa7e560d8091ff0fb71ba8c0bb6fa1a64513ea8b2cb1d32d777c4cbd4bd4e5194df69e1718529db19516313b90b68e11ff27774c1417a71dc0d6bccd5ea01875bb6399fd14cf766e1a48d4f570798710bc4bc9ba6511ef5c53a9b998b3df27aa05557463c4a5e1d7eb71aa85b90a8b34f57b1a7bcaa3d7e232d8b5d1af0981b84f0e2c8a4c13d0673e61926f77404f087bb110b40e7c858c6d14d5f4dae4248e85c65c5f29b56cf2a4e7f1d8bb53e85540f1da3478e01ccda0a8367fd1cfce2d67d5d2773015677372bb2fe81acba16247d3cc132074baa00f470257d9369c0ebedb460442627212ec11c31a296ebd561560cd08a55e43be0fa5a93054191932cad21b735de1d8aa34fe72e2df0d0cb581c33ecd6827b79ccfa7872357651260b8abb1575d621610e95be3b1f2de44a081f51d3d28b6723c24c518c64e3cd318cb27309fa34e57477095978d6a786d1416c48aa77d6c478e23bf5d711bc7ddf75932ae4687accf014a7c6e04adc5e791f304df79e85fa8fdf2be9d7703cfe0204e26c3bbae95d87a638e2a9194f37de1c8dd4e973bc86b4fea8b6197fa12384928fce727cd92b00231f275359c1c54f9abb9856a6c3361e90083702f5bdd4b7e8fe287461d025afac27a047020e36aa3d1a9339b2b7397786615ebcf003e7f4ac7f6c2c7b7a7260bf62b25f7845b4e8e7eda093ce75e5e2d7fa276f40b85dec3f0d268dfb9446ae05f08c361555f59dbf84736922b94b13ecc170fca71b670283a36f1007c11984d3c65cf1119fe93a52c56ac21e719b7c62f4e543439608d06c6aae60e64af89dd6aa09dfc2097538fb06005556635b27765c18b317c98a36649beb2ff61cb6edce578e6de7589dc8e4277a0e80ca428011813edf20e112b792d05a74f98f358ebf245490603e22806a7a15620f1dd9e3ac1d4671ddbafb1e125ce9451351ab4d37fff3e8d857bb2dfcdbe450058797cc52a808c5f8eca7264f37485a8c8b3553def4f4b75e059ef1ee61c157f00d22a8aba65a89a910f1328a90ffd2c10c36d6e4cc9327cd55fd99d15579240fad153a44ace1c39d96a118e618944ff08c66b0f5113a244266ea9a09e7743bef4793788b57d1ace1d96c2eb5cf0242a272cc8ce488d7f78751691e5b5d540c0df333f9acfc85271fa01db8903bb15cdbca2569055466618102fc724a388f0ebd14a8f26195d4240166ca90347fb55146c0ccfb7a52a11a7451962d08526c8bf86ebc15884cb485c08e2521c945184a358a356c72fe84cb1560039be72996dbb117466ed49f4cb71d2e329d2edf3eeb6ef05a770d24eb4539c98ba830c3f4fdd12ad9e59c3168f59ed541a9e5071c7ec6abecdfc6ea4bd51ef8db63a3eb6d961da7e76a77f844be6168cb37d31430ef72bbfad65c2eaec35a46fc6c46d571083f0091ab6af24cb73e40e0b8ff4c1f47b1ab7e540c2d0c3310436430c7ecba179b800c172d3f015346b3602e6722fa2f0d979f6a19ac76736fb78ad999bcfefc63be3e7d93728991a82e09863509388b6c8fb08c1b0802d18b83c3077776c26c0e16ec250697f4cf795d82a300041ca1ce0d6b756a7f34e979cbbe4d088d3529d00fe1dc5ae1c7f8d981246ffe883c7e19ec869cdaf651b841e5723e4ffcef83229a5f1f411de98f2179c576141c3a2031f46908603f04a76242bd17e1f31d3306f50670923d20e46bad042c4127a3e3155f14c2b7be8066bff441178e631db18da249cd7d4c687294bd09530f90cb47c3bbb665ce4459ad527bb881d12bf47c787f2bb7074b99ba8c4009d8520e386b0a62f56001341f7223895a05071786777959952d6b6c1affe985123f099b97dc27fda15d1d30da9ce80367911dfcee54655ea458d9d5740d3396aa406254b04be689797621646ee5c8df1ccab9650eb9b1adb083024c2f9d68acafbc95066f43ca76042eebb59792d8d12eaac940edb6b8fd68cc4515fa9d626388ab04abf6935d05fd0e35ffb3417eed1d9811c7a54cf492db05bfc587052fddb64f1d4fd4894d1a19338446e1ab4b0690c91389a7e63cde345</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css"></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">LCL</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/05/10/47/">http://example.com/2024/05/10/47/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Xiutrim</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/">终端命令</a><a class="post-meta__tags" href="/tags/Docker/">Docker</a><a class="post-meta__tags" href="/tags/%E7%BE%A4%E6%99%96/">群晖</a></div><div class="post_share"><div class="social-share" data-image="https://raw.githubusercontent.com/xiutrim/Images/main/img/团子大家族.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechatpay.png" target="_blank"><img class="post-qr-code-img" src="/img/wechatpay.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.png" target="_blank"><img class="post-qr-code-img" src="/img/alipay.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/05/09/44/" title="MarkDown 语法教程"><img class="cover" src="https://raw.githubusercontent.com/xiutrim/Images/main/img/团子大家族.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">MarkDown 语法教程</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/04/22/00/" title="Linux 常用命令"><img class="cover" src="https://raw.githubusercontent.com/xiutrim/Images/main/img/团子大家族.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-23</div><div class="title">Linux 常用命令</div></div></a></div><div><a href="/2024/05/08/22/" title="Qexo docker部署"><img class="cover" src="https://raw.githubusercontent.com/xiutrim/Images/main/img/团子大家族.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-08</div><div class="title">Qexo docker部署</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://emotion.acs.pw/emotion/bilibili_hotKey/标准结局.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">LCL</div><div class="author-info__description">今日事，今日毕</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xiutrim"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xiutrim" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:xiutrim@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎访问</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content toc-div-class" style="display:none"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93"><span class="toc-text"> 个人常用命令总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Hexo-%E5%91%BD%E4%BB%A4"><span class="toc-text">1. Hexo 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E8%BF%9B%E5%85%A5%E5%AE%B9%E5%99%A8"><span class="toc-text">1.1 进入容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Github-%E8%BF%9E%E6%8E%A5"><span class="toc-text">1.2 Github 连接</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/10/47/" title="群晖常用命令"><img src="https://raw.githubusercontent.com/xiutrim/Images/main/img/团子大家族.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="群晖常用命令"/></a><div class="content"><a class="title" href="/2024/05/10/47/" title="群晖常用命令">群晖常用命令</a><time datetime="2024-05-10T06:12:47.056Z" title="更新于 2024-05-10 14:12:47">2024-05-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/04/21/" title="Hello World"><img src="https://raw.githubusercontent.com/xiutrim/Images/main/img/团子大家族.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2024/05/04/21/" title="Hello World">Hello World</a><time datetime="2024-05-10T05:50:08.099Z" title="更新于 2024-05-10 13:50:08">2024-05-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/09/44/" title="MarkDown 语法教程"><img src="https://raw.githubusercontent.com/xiutrim/Images/main/img/团子大家族.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MarkDown 语法教程"/></a><div class="content"><a class="title" href="/2024/05/09/44/" title="MarkDown 语法教程">MarkDown 语法教程</a><time datetime="2024-05-09T06:41:17.902Z" title="更新于 2024-05-09 14:41:17">2024-05-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/02/26/" title="Ubuntu 基本配置"><img src="https://raw.githubusercontent.com/xiutrim/Images/main/img/团子大家族.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Ubuntu 基本配置"/></a><div class="content"><a class="title" href="/2024/05/02/26/" title="Ubuntu 基本配置">Ubuntu 基本配置</a><time datetime="2024-05-09T06:40:42.312Z" title="更新于 2024-05-09 14:40:42">2024-05-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/03/14/" title="Vim 操作和第一行代码"><img src="https://raw.githubusercontent.com/xiutrim/Images/main/img/团子大家族.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vim 操作和第一行代码"/></a><div class="content"><a class="title" href="/2024/05/03/14/" title="Vim 操作和第一行代码">Vim 操作和第一行代码</a><time datetime="2024-05-09T06:39:49.930Z" title="更新于 2024-05-09 14:39:49">2024-05-09</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2024 By LCL</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'http://xiua.online:9080/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'http://xiua.online:9080/',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(init,0)
+    else getScript('https://cdn.jsdelivr.net/npm/twikoo@1.6.31/dist/twikoo.all.min.js').then(init)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>

@@ -1,3 +1,4 @@
+http://example.com/2024/05/10/47/
 http://example.com/2024/05/04/21/
 http://example.com/2024/05/09/44/
 http://example.com/2024/05/02/26/
@@ -19,5 +20,7 @@ http://example.com/tags/Docker/
 http://example.com/tags/Ubuntu/
 http://example.com/tags/VMTools/
 http://example.com/tags/Vim/
+http://example.com/tags/%E7%BE%A4%E6%99%96/
 http://example.com/categories/Linux/
 http://example.com/categories/Hexo/
+http://example.com/categories/%E7%BE%A4%E6%99%96/
