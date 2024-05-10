@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-05-08T06:28:24.702Z</updated>
+  <updated>2024-05-09T06:41:17.902Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>MarkDown 语法教程</title>
-    <link href="http://example.com/2024/05/08/00/"/>
-    <id>http://example.com/2024/05/08/00/</id>
-    <published>2024-05-08T14:29:00.691Z</published>
-    <updated>2024-05-08T06:28:24.702Z</updated>
+    <link href="http://example.com/2024/05/09/44/"/>
+    <id>http://example.com/2024/05/09/44/</id>
+    <published>2024-05-09T14:41:44.270Z</published>
+    <updated>2024-05-09T06:41:17.902Z</updated>
     
     
       
@@ -35,6 +35,10 @@
     
     
     
+    <category term="Hexo" scheme="http://example.com/categories/Hexo/"/>
+    
+    
+    <category term="Markdown" scheme="http://example.com/tags/Markdown/"/>
     
   </entry>
   
@@ -87,10 +91,10 @@
     <link href="http://example.com/2024/05/04/21/"/>
     <id>http://example.com/2024/05/04/21/</id>
     <published>2024-05-04T17:51:21.000Z</published>
-    <updated>2024-05-07T18:30:01.392Z</updated>
+    <updated>2024-05-10T05:50:08.099Z</updated>
     
     
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;</summary>
+    <summary type="html">有东西被加密了, 请输入密码查看.</summary>
     
     
     
@@ -98,11 +102,11 @@
   </entry>
   
   <entry>
-    <title>Vim操作和第一行代码</title>
+    <title>Vim 操作和第一行代码</title>
     <link href="http://example.com/2024/05/03/14/"/>
     <id>http://example.com/2024/05/03/14/</id>
     <published>2024-05-03T04:20:14.000Z</published>
-    <updated>2024-05-08T06:27:19.555Z</updated>
+    <updated>2024-05-09T06:39:49.930Z</updated>
     
     
       
@@ -117,15 +121,21 @@
     
     
     
+    <category term="Linux" scheme="http://example.com/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="http://example.com/tags/Linux/"/>
+    
+    <category term="Vim" scheme="http://example.com/tags/Vim/"/>
     
   </entry>
   
   <entry>
-    <title>Ubuntu 基本配置和 MarkDown 文档使用教程</title>
+    <title>Ubuntu 基本配置</title>
     <link href="http://example.com/2024/05/02/26/"/>
     <id>http://example.com/2024/05/02/26/</id>
     <published>2024-05-02T07:27:26.000Z</published>
-    <updated>2024-05-08T06:27:11.250Z</updated>
+    <updated>2024-05-09T06:40:42.312Z</updated>
     
     
       
@@ -138,6 +148,14 @@
     
     
     
+    <category term="Linux" scheme="http://example.com/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="http://example.com/tags/Linux/"/>
+    
+    <category term="Ubuntu" scheme="http://example.com/tags/Ubuntu/"/>
+    
+    <category term="VMTools" scheme="http://example.com/tags/VMTools/"/>
     
   </entry>
   

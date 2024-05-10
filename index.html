@@ -1,637 +1,514 @@
-
-
-<!DOCTYPE html>
-<html lang="zh-CN,en,default" data-default-color-scheme=auto>
-
-
-
-<head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="LCL">
-  <meta name="keywords" content="">
-  
-    <meta property="og:type" content="website">
+<!DOCTYPE html><html lang="[&quot;zh-CN&quot;,&quot;en&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Xiutrim - 个人博客</title><meta name="author" content="LCL"><meta name="copyright" content="LCL"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
 <meta property="og:title" content="Xiutrim">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Xiutrim">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://emotion.acs.pw/emotion/bilibili_hotKey/%E6%A0%87%E5%87%86%E7%BB%93%E5%B1%80.png">
 <meta property="article:author" content="LCL">
-<meta name="twitter:card" content="summary_large_image">
-  
-  
-  
-  <title>Xiutrim</title>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://emotion.acs.pw/emotion/bilibili_hotKey/%E6%A0%87%E5%87%86%E7%BB%93%E5%B1%80.png"><link rel="shortcut icon" href="/img/apple-touch-icon-next.png"><link rel="canonical" href="http://example.com/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":5,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":50},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体中文","cht_to_chs":"你已切换为简体中文","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-center"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Xiutrim',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-05-10 21:53:26'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
 
-
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-
-  
-<meta name="generator" content="Hexo 7.2.0">
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/modify.css"><script defer src="https://cn.vercount.one/js"></script><meta name="generator" content="Hexo 7.2.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="Xiutrim" type="application/atom+xml">
-</head>
+</head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+document.addEventListener('pjax:send', () => {
+  Pace.restart()
+})
+</script><link rel="stylesheet" href="/css/flash.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://emotion.acs.pw/emotion/bilibili_hotKey/标准结局.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Xiutrim"><span class="site-name">Xiutrim</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2024/05/09/44/" title="MarkDown 语法教程"><img class="post-bg" src="https://raw.githubusercontent.com/xiutrim/Images/main/img/团子大家族.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MarkDown 语法教程"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/05/09/44/" title="MarkDown 语法教程">MarkDown 语法教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-09T14:41:44.270Z" title="发表于 2024-05-09 22:41:44">2024-05-09</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-09T06:41:17.902Z" title="更新于 2024-05-09 14:41:17">2024-05-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Hexo/">Hexo</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Markdown/">Markdown</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a class="twikoo-count" href="/2024/05/09/44/#post-comment"><i class="fa-solid fa-spinner fa-spin"></i></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">MarkDown 文档格式
+基于 HTML 技术在程序员之间非常流行的一种文档形式，广泛用于各大程序社区，例如 CSDN，GitHub，简书，stackoverflow。支持文本，代码块，引用，图片，超链接，表格…
+
+1. 标题
+MarkDown 标题形式和 HTML 文件标题一致，都是 6 级标题，一级标题到六级标题，对应快捷键是 **Ctrl + 1 ~ Ctrl + 6**，也可以使用源码模式 # 开头，# 个数决定标题的级别
 
 
-<body>
-  
+2. 引用
+目前内容对于当前文本就是引用模式，一般用于解释内容。快捷键是 **Ctrl + Shift + Q**。
 
-  <header>
-    
-
-<div class="header-inner" style="height: 100vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="An elegant Material-Design theme for Hexo"></span>
-          
-        </div>
-
-        
-      </div>
-
-      
-        <div class="scroll-down-bar">
-          <i class="iconfont icon-arrowdown"></i>
-        </div>
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      <div class="container nopadding-x-md">
-        <div id="board"
-          style="margin-top: 0">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+3. 列表
+列表可以用于流程分析，提示，重点内容标记，分别有，有序列表，无序列表，任务列表
 
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2024/05/08/00/" target="_self">
-          MarkDown 语法教程
-        </a>
-      </h2>
+有序列表 Ctrl + Shift + [
 
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/05/08/00/" target="_self">
-        <div>
-          MarkDown 文档格式 基于 HTML 技术在程序员之间非常流行的一种文档形式，广泛用于各大程序社区，例如 CSDN，GitHub，简书，stackoverflow。支持文本，代码块，引用，图片，超链接，表格…  1. 标题 MarkDown 标题形式和 HTML 文件标题一致，都是 6 级标题，一级标题到六级标题，对应快捷键是 **Ctrl + 1 ~ Ctrl + 6**，也可以使用源码模
-        </div>
-      </a>
+流程一
+步骤一
+步骤二
+流程一，步骤一，内容一
 
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-05-08 22:29" pubdate>
-              2024-05-08
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2024/05/08/22/" target="_self">
-          Qexo docker部署
-        </a>
-      </h2>
 
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/05/08/22/" target="_self">
-        <div>
-          Qexo docker部署Qexo 是一个快速、强大、美观的在线 静态博客编辑器。使用 GPL3.0 开源协议。支持包括且不限于在 Vercel 等平台部署, 为您的静态博客添加动态的元素。使用Qexo可以管理Hexo友链、文章管理、站点统计、发布说说等多种功能，这篇文章是用其中一种方式部署，采用Vercel（PostgreSQL/SupaBase）的方式进行部署，想了解更多功能介绍和部署方式可以
-        </div>
-      </a>
 
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-05-08 13:10" pubdate>
-              2024-05-08
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
+流程二
+流程三
+
+
+
+无序列表 Ctrl + Shift + ]
+
+咖啡
+拿铁
+生椰拿铁
+丝绒拿铁
+陨石拿铁
+
+
+美式
+
+
+茶
+绿茶
+信阳毛尖
+碧螺春
+龙井
+
+
+红茶
+大红包
+
+
+白茶
+
+
+酒
+
+
+
+任务列表，没有快捷键需要通过菜单栏 –& ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/05/08/22/" title="Qexo docker部署"><img class="post-bg" src="https://raw.githubusercontent.com/xiutrim/Images/main/img/团子大家族.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Qexo docker部署"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/05/08/22/" title="Qexo docker部署">Qexo docker部署</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-08T05:10:22.964Z" title="发表于 2024-05-08 13:10:22">2024-05-08</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-08T06:26:59.255Z" title="更新于 2024-05-08 14:26:59">2024-05-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Hexo/">Hexo</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Hexo/">Hexo</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Qexo/">Qexo</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Docker/">Docker</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a class="twikoo-count" href="/2024/05/08/22/#post-comment"><i class="fa-solid fa-spinner fa-spin"></i></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">Qexo docker部署Qexo 是一个快速、强大、美观的在线 静态博客编辑器。使用 GPL3.0 开源协议。支持包括且不限于在 Vercel 等平台部署, 为您的静态博客添加动态的元素。使用Qexo可以管理Hexo友链、文章管理、站点统计、发布说说等多种功能，这篇文章是用其中一种方式部署，采用Vercel（PostgreSQL/SupaBase）的方式进行部署，想了解更多功能介绍和部署方式可以查看官方文档。
+
+
+1. docker部署1.1 下载Qexo 项目压缩包并解压上传至部署服务器1.2 在manage.py的同级目录下创建或修改 configs.py，修改内容如下：12345678910111213141516import pymysqlpymysql.install_as_MySQLdb()DOMAINS = ["127.0.0.1", "yoursite.com"] #"yoursite.com"为允许访问的网址DATABASES = {    'default': {            'ENGINE': 'django.db.backends.mysql',   ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/05/05/37/" title="Hexo加密"><img class="post-bg" src="https://raw.githubusercontent.com/xiutrim/Images/main/img/团子大家族.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo加密"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/05/05/37/" title="Hexo加密">Hexo加密</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-05T17:26:37.000Z" title="发表于 2024-05-06 01:26:37">2024-05-06</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-08T06:27:06.548Z" title="更新于 2024-05-08 14:27:06">2024-05-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a class="twikoo-count" href="/2024/05/05/37/#post-comment"><i class="fa-solid fa-spinner fa-spin"></i></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">hexo-blog-encrypt
+提 issue 之前，请务必提供复现方式，log，配置信息等必要信息。良好的 issue 可以节省双方的时间。请严格按照模版要求，不明确的 issue 将直接关闭。
+参考 issue:
+
+
+Issue 83
+Issue 68
+
+
+这是个啥
+首先, 这是 Hexo 生态圈中 最好的 博客加密插件
+你可能需要写一些私密的博客, 通过密码验证的方式让人不能随意浏览.
+这在 wordpress, emlog 或是其他博客系统中都很容易实现, 然而 hexo 除外. :(
+为了解决这个问题, 让我们有请 “hexo-blog-encrypt”.
+
+特性
+一旦你输入了正确的密码, 它将会被存储在本地浏览器的 localStorage中. 按个按钮, 密码将会被清空. 若博客中有脚本, 它将会被正确地执行.
+支持按标签加密.
+所有的核心功能都是由原生的 API 所提供的. 在 Node.js中, 我们使用 Crypto. 在浏览器中, 我们使用 Web Crypto API.
+PBKDF2, SHA256 被用于分发密钥, AES256-CBC 被用于加解密, 我 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/05/04/21/" title="Hello World"><img class="post-bg" src="https://raw.githubusercontent.com/xiutrim/Images/main/img/团子大家族.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/05/04/21/" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-04T17:51:21.000Z" title="发表于 2024-05-05 01:51:21">2024-05-05</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-10T05:50:08.099Z" title="更新于 2024-05-10 13:50:08">2024-05-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a class="twikoo-count" href="/2024/05/04/21/#post-comment"><i class="fa-solid fa-spinner fa-spin"></i></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+  197b58f8171591052db2d7a0a756303cdb3469363af6c3337a822297a92ed763f138a2bf12fbaeb52046e13da52fb59778d48c7f75d46a89b3b5870e5a2bd1be055a3c15823ea9e80b0f74aff3a1c6b601dbef12d2e0ae0a39e6468fe115442a052d43723eac9114afd7fe281ea56f2073cb7617dc6b007100c3c4d038026633b4ecb6201f0e03262d32dc1c3c5ddd541c8363083a35d033c6d132bab36269792cbef58ac3fb6698cf9954c926f8529dd6ec19553b210da8925ba3792b4169463c75ee94937d2cc7e1b0909b9dab6d12ff6aa08a45dac177fbd8e3853cb85bcf302283378e23c7b24a8d02904af0608b98319bd84fa8530f2 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/05/03/14/" title="Vim 操作和第一行代码"><img class="post-bg" src="https://raw.githubusercontent.com/xiutrim/Images/main/img/团子大家族.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vim 操作和第一行代码"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/05/03/14/" title="Vim 操作和第一行代码">Vim 操作和第一行代码</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-03T04:20:14.000Z" title="发表于 2024-05-03 12:20:14">2024-05-03</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-09T06:39:49.930Z" title="更新于 2024-05-09 14:39:49">2024-05-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Linux/">Linux</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Vim/">Vim</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a class="twikoo-count" href="/2024/05/03/14/#post-comment"><i class="fa-solid fa-spinner fa-spin"></i></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+[toc]
+Vim操作和第一行代码1. Vim 编辑器1.1 Vim 概述
+Vim 是一个经典的文本编辑器，特别适用于在终端环境下进行编辑。它具有高度的可定制性和丰富的功能，是程序员和系统管理员的首选工具之一。Vim 具有很多强大的特性，包括多级撤销、语法高亮、代码折叠、插件支持等等。
+
+1.2 vim 三种模式
+1.3 vim 插入模式
+插入模式在 Vim 左下角有对应的提示，告知用户当前是插入模式。可以直接写代码，修改文本等一系列操作。
+
+1.4 vim 编辑模式
+编辑模式，可以通过指令进行文本内容拷贝，删除，剪切，定位….
+
+
+
+
+指令
+功能描述
+
+
+
+i
+在光标所在位置进入插入模式
+
+
+o
+在光标所在位置另起一行进入插入模式
+
+
+a
+在光标所在位置向后一格进入插入模式
+
+
+yy
+复制光标所在行内容
+
+
+y[n]y or [n]yy
+n表示行数，从光标所在位置开始复制 n 行内容
+
+
+p
+在光标所在位置粘贴【剪切板】存储内容
+
+
+dd
+剪切光标所在行内容
+
+
+d[n]d or [n]dd
+n表示行数，从光标所在位置开始剪切 n 行内容
+
+
+gg or ngg
+跳转当前文档中的指 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/05/02/26/" title="Ubuntu 基本配置"><img class="post-bg" src="https://raw.githubusercontent.com/xiutrim/Images/main/img/团子大家族.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Ubuntu 基本配置"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/05/02/26/" title="Ubuntu 基本配置">Ubuntu 基本配置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-02T07:27:26.000Z" title="发表于 2024-05-02 15:27:26">2024-05-02</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-09T06:40:42.312Z" title="更新于 2024-05-09 14:40:42">2024-05-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Linux/">Linux</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Ubuntu/">Ubuntu</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/VMTools/">VMTools</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a class="twikoo-count" href="/2024/05/02/26/#post-comment"><i class="fa-solid fa-spinner fa-spin"></i></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">Ubuntu 基本配置1. Ubuntu 概述
+Ubuntu 是一个流行的基于 Linux 的操作系统，它是由南非的一家公司 Canonical Ltd. 开发和维护的。Ubuntu 基于 Debian 发行版，以其用户友好性、稳定性和免费开源的特点而闻名。
+嵌入式设备驱动编程和设备所需系统基本首选 Ubuntu 系统。
+
+2. VMTools 安装
+VMTools  VMWare 软件针对于虚拟机内部从操作系统，提供的一个辅助插件，可以更好的适配当前虚拟机系统内容，同时可以打通 Windows 操作系统和 VMWare 内部虚拟机之间的关系。
+
+
+Ubuntu 虚拟机启动之后选择安装 VMWare Tools
+
+
+
+
+找到对应的光驱位置，打开VMWare Tools 光盘内容，同步解压
+
+
+
+
+提取压缩包内容到目标文件夹
+
+
+
+
+解压之后的桌面效果
+
+
+
+
+终端打开目标文件夹
+
+
+
+
+终端打开效果
+
+
+
+
+执行目标命令，同时确认安装 VMWare Tools
+
+
+
+
+VMWare Tools 安装成功
+
+
+
+
+系统登出之后生效
+
+
+
+3. 更新数据源
+Ubuntu 有【软件中心】，软 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/04/22/00/" title="Linux 常用命令"><img class="post-bg" src="https://raw.githubusercontent.com/xiutrim/Images/main/img/团子大家族.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 常用命令"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/04/22/00/" title="Linux 常用命令">Linux 常用命令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-04-22T22:41:00.000Z" title="发表于 2024-04-23 06:41:00">2024-04-23</time><span class="article-meta-separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-08T06:26:51.375Z" title="更新于 2024-05-08 14:26:51">2024-05-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Linux/">Linux</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/">终端命令</a></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a class="twikoo-count" href="/2024/04/22/00/#post-comment"><i class="fa-solid fa-spinner fa-spin"></i></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">Linux 常用命令1. Linux 目录结构
+Linux 目录结构不分盘分区，仅有一个【根目录 /】作为整个 Linux 文件系统/目录结构的开端，根据不同的功能划分不同的文件夹，已【树状】结构分别整个文件系统. 根目录以后很多文件夹，例如: lib，dev，sys… 对于用户而言最重要的是 home 目录的个人文件夹。
+主要的目录:
+
+/ 根目录，整个 Linux 系统文件结构的开端
+~ 用户家目录，对应的真实路径是 /home/用户名个人目录，例如: /home/qf。除了系统相关配置，大多数操作都是在家目录完成的。
+
+
+2. 路径关系
+相对路径:
+
+生活案例: 我在隔壁办公室，我在前台，我在校区门口
+已当前所在位置为参照物去往某一个路径的【捷径】
+
+绝对路径:
+
+生活案例：河南省郑州市高新区莲花街 55 号威科姆院区 D 座 5 楼千锋教育
+是以整体根目录概念完成的路径关系。
+
+
+
+开发中对应的路径关系
+相对路径补充知识点:
+
+.    表示当前工作目录
+..  表示当前工作目录的上级目录
+
+相对路径和绝对路径案例
+
+绝对路径，例如:
+/home/qf,
+/home/qf/桌面 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://emotion.acs.pw/emotion/bilibili_hotKey/标准结局.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">LCL</div><div class="author-info__description">今日事，今日毕</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xiutrim"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xiutrim" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:xiutrim@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎访问</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/04/21/" title="Hello World"><img src="https://raw.githubusercontent.com/xiutrim/Images/main/img/团子大家族.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2024/05/04/21/" title="Hello World">Hello World</a><time datetime="2024-05-10T05:50:08.099Z" title="更新于 2024-05-10 13:50:08">2024-05-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/09/44/" title="MarkDown 语法教程"><img src="https://raw.githubusercontent.com/xiutrim/Images/main/img/团子大家族.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MarkDown 语法教程"/></a><div class="content"><a class="title" href="/2024/05/09/44/" title="MarkDown 语法教程">MarkDown 语法教程</a><time datetime="2024-05-09T06:41:17.902Z" title="更新于 2024-05-09 14:41:17">2024-05-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/02/26/" title="Ubuntu 基本配置"><img src="https://raw.githubusercontent.com/xiutrim/Images/main/img/团子大家族.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Ubuntu 基本配置"/></a><div class="content"><a class="title" href="/2024/05/02/26/" title="Ubuntu 基本配置">Ubuntu 基本配置</a><time datetime="2024-05-09T06:40:42.312Z" title="更新于 2024-05-09 14:40:42">2024-05-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/03/14/" title="Vim 操作和第一行代码"><img src="https://raw.githubusercontent.com/xiutrim/Images/main/img/团子大家族.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vim 操作和第一行代码"/></a><div class="content"><a class="title" href="/2024/05/03/14/" title="Vim 操作和第一行代码">Vim 操作和第一行代码</a><time datetime="2024-05-09T06:39:49.930Z" title="更新于 2024-05-09 14:39:49">2024-05-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/05/37/" title="Hexo加密"><img src="https://raw.githubusercontent.com/xiutrim/Images/main/img/团子大家族.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo加密"/></a><div class="content"><a class="title" href="/2024/05/05/37/" title="Hexo加密">Hexo加密</a><time datetime="2024-05-08T06:27:06.548Z" title="更新于 2024-05-08 14:27:06">2024-05-08</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
             
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Hexo/" class="category-chain-item">Hexo</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Hexo/">#Hexo</a>
-            
-              <a href="/tags/Qexo/">#Qexo</a>
-            
-              <a href="/tags/Docker/">#Docker</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2024/05/05/37/" target="_self">
-          Hexo加密
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/05/05/37/" target="_self">
-        <div>
-          hexo-blog-encrypt 提 issue 之前，请务必提供复现方式，log，配置信息等必要信息。良好的 issue 可以节省双方的时间。请严格按照模版要求，不明确的 issue 将直接关闭。 参考 issue:   Issue 83 Issue 68   这是个啥 首先, 这是 Hexo 生态圈中 最好的 博客加密插件 你可能需要写一些私密的博客, 通过密码验证的方式让人不能随意浏览.
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-05-06 01:26" pubdate>
-              2024-05-06
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2024/05/04/21/" target="_self">
-          Hello World
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/05/04/21/" target="_self">
-        <div>
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-05-05 01:51" pubdate>
-              2024-05-05
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2024/05/03/14/" target="_self">
-          Vim操作和第一行代码
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/05/03/14/" target="_self">
-        <div>
-          [toc] Vim操作和第一行代码1. Vim 编辑器1.1 Vim 概述 Vim 是一个经典的文本编辑器，特别适用于在终端环境下进行编辑。它具有高度的可定制性和丰富的功能，是程序员和系统管理员的首选工具之一。Vim 具有很多强大的特性，包括多级撤销、语法高亮、代码折叠、插件支持等等。  1.2 vim 三种模式 1.3 vim 插入模式 插入模式在 Vim 左下角有对应的提示，告知用户当前是插
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-05-03 12:20" pubdate>
-              2024-05-03
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2024/05/02/26/" target="_self">
-          Ubuntu 基本配置和 MarkDown 文档使用教程
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/05/02/26/" target="_self">
-        <div>
-          Ubuntu 基本配置1. Ubuntu 概述 Ubuntu 是一个流行的基于 Linux 的操作系统，它是由南非的一家公司 Canonical Ltd. 开发和维护的。Ubuntu 基于 Debian 发行版，以其用户友好性、稳定性和免费开源的特点而闻名。 嵌入式设备驱动编程和设备所需系统基本首选 Ubuntu 系统。  2. VMTools 安装 VMTools  VMWare 软件针对于虚拟
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-05-02 15:27" pubdate>
-              2024-05-02
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2024/04/22/00/" target="_self">
-          Linux 常用命令
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/04/22/00/" target="_self">
-        <div>
-          Linux 常用命令1. Linux 目录结构 Linux 目录结构不分盘分区，仅有一个【根目录 /】作为整个 Linux 文件系统/目录结构的开端，根据不同的功能划分不同的文件夹，已【树状】结构分别整个文件系统. 根目录以后很多文件夹，例如: lib，dev，sys… 对于用户而言最重要的是 home 目录的个人文件夹。 主要的目录:  / 根目录，整个 Linux 系统文件结构的开端 ~ 用户
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-04-23 06:41" pubdate>
-              2024-04-23
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Linux/">#Linux</a>
-            
-              <a href="/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/">#终端命令</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-
-
-
-
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-  
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Hexo/"><span class="card-category-list-name">Hexo</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">3</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Linux/" style="font-size: 1.45em; color: rgb(49, 44, 84)">Linux</a><a href="/tags/%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/" style="font-size: 1.15em; color: rgb(18, 142, 170)">终端命令</a><a href="/tags/Markdown/" style="font-size: 1.15em; color: rgb(63, 158, 117)">Markdown</a><a href="/tags/Hexo/" style="font-size: 1.15em; color: rgb(9, 173, 26)">Hexo</a><a href="/tags/Qexo/" style="font-size: 1.15em; color: rgb(55, 120, 39)">Qexo</a><a href="/tags/Docker/" style="font-size: 1.15em; color: rgb(74, 12, 114)">Docker</a><a href="/tags/Ubuntu/" style="font-size: 1.15em; color: rgb(120, 160, 167)">Ubuntu</a><a href="/tags/VMTools/" style="font-size: 1.15em; color: rgb(63, 28, 67)">VMTools</a><a href="/tags/Vim/" style="font-size: 1.15em; color: rgb(188, 135, 142)">Vim</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">7</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2024-05-01T00:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">6.5k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-05-10T13:53:26.016Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2024 By LCL</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => { 
+  const getCommentUrl = () => {
+    const eleGroup = document.querySelectorAll('#recent-posts .article-title')
+    let urlArray = []
+    eleGroup.forEach(i=>{
+      urlArray.push(i.getAttribute('href'))
     })
-  </script>
+    return urlArray
+  }
 
+  const getCount = () => {
+    const runTwikoo = () => {
+      twikoo.getCommentsCount({
+        envId: 'http://xiua.online:9080/',
+        region: '',
+        urls: getCommentUrl(),
+        includeReply: false
+      }).then(function (res) {
+        document.querySelectorAll('#recent-posts .twikoo-count').forEach((item,index) => {
+          item.textContent = res[index].count
+        })
+      }).catch(function (err) {
+        console.log(err)
+      })
+    }
 
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
+      if (typeof twikoo === 'object') {
+        runTwikoo()
+      } else {
+        getScript('https://cdn.jsdelivr.net/npm/twikoo@1.6.31/dist/twikoo.all.min.js').then(runTwikoo)
       }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
+  }
 
+  window.pjax ? getCount() : window.addEventListener('load', getCount)
 
+})()</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
 
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
 
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
 
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'http://xiua.online:9080/',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
 
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
 
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo@1.6.31/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
 
-  <script  src="/js/local-search.js" ></script>
+  const generateHtml = array => {
+    let result = ''
 
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
 
+        if (true) {
+          const name = 'src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
 
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
 
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
 
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
-</body>
-</html>
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
